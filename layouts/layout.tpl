@@ -37,6 +37,10 @@
             {# General CSS Tokens #}
 
             {% include "static/css/style-tokens.tpl" %}
+
+            .section-adbar, .js-adbar, [data-store="advertising-bar"] {
+                display: none !important;
+            }
         </style>
 
         {# Critical CSS #}
@@ -179,5 +183,17 @@
                 });
             </script>
         {% endif %}
+        <script>
+            (function() {
+                function removeAdbar() {
+                    var els = document.querySelectorAll('.section-adbar, .js-adbar, [data-store="advertising-bar"]');
+                    els.forEach(function(el) { el.remove(); });
+                }
+                removeAdbar();
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', removeAdbar);
+                }
+            })();
+        </script>
     </body>
 </html>
