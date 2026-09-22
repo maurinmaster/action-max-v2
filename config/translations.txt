@@ -4811,3 +4811,24 @@ es "<a target='_blank' href='https://ayuda.tiendanube.com/es_AR/123465-cupones-y
 pt "<a target='_blank' href='https://atendimento.nuvemshop.com.br/cupons/como-criar-cupons-de-desconto' class='js-checkbox-help-link'>Mais sobre cupons de desconto</a>"
 en "<a target='_blank' href='https://ayuda.tiendanube.com/es_AR/123465-cupones-y-promociones/que-son-los-cupones-de-descuento' class='js-checkbox-help-link'>More about discount coupons</a>"
 es_mx "<a target='_blank' href='https://ayuda.tiendanube.com/es_AR/123465-cupones-y-promociones/que-son-los-cupones-de-descuento' class='js-checkbox-help-link'>Más sobre cupones de descuento</a>"
+
+es "Faixa de anúncio no topo (acima do cabeçalho)"
+pt "Faixa de anúncio no topo (acima do cabeçalho)"
+en "Top announcement bar (above header)"
+es_mx "Barra de anuncio superior (arriba del encabezado)"
+
+es "Mostrar faixa de anúncio no topo"
+pt "Mostrar faixa de anúncio no topo"
+en "Show top announcement bar"
+es_mx "Mostrar barra de anuncio superior"
+
+es "Texto do anúncio"
+pt "Texto do anúncio"
+en "Announcement text"
+es_mx "Texto del anuncio"
+
+es "Link do anúncio (opcional)"
+pt "Link do anúncio (opcional)"
+en "Announcement link (optional)"
+es_mx "Enlace del anuncio (opcional)"
+

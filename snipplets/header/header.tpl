@@ -90,6 +90,9 @@
 
 {% set head_languages_class = has_languages and settings.logo_position_mobile == 'center' and not settings.search_big_mobile and settings.logo_size == 'big' ? 'head-logo-center-language-small' %}
 
+{# Top Announcement Bar (Above Header) #}
+{% snipplet "header/top-banner.tpl" %}
+
 <header class="js-head-main head-main {{ header_colors_classes }} {{ header_transparent_classes }} {{ head_transparent_color_class }} {{ head_transparent_logo_class }} {{ head_position_mobile }} {{ head_position_desktop }} {{ header_logo_mobile_classes }} {{ header_logo_mobile_search_icon_classes }} {{ header_logo_desktop_classes }} {{ header_logo_left_nav_below_desktop_classes }} {{ head_nav_inline_desktop_classes }} {{ head_desktop_nav_color_classes }} {{ head_languages_class }} {{ head_adbar_classes }} transition-soft" data-store="head">
 
     {# Secondary nav and account links #}

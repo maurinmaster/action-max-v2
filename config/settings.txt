@@ -484,6 +484,23 @@ Encabezado
 		name = head_informative_banner_02_url
 		description = Link
 	collapse
+		title = Faixa de anúncio no topo (acima do cabeçalho)
+	checkbox
+		name = top_bar_announcement_show
+		description = Mostrar faixa de anúncio no topo
+	color
+		name = top_bar_announcement_bg_color
+		description = Cor do fundo
+	color
+		name = top_bar_announcement_text_color
+		description = Cor do texto
+	i18n_input
+		name = top_bar_announcement_text
+		description = Texto do anúncio
+	i18n_input
+		name = top_bar_announcement_url
+		description = Link do anúncio (opcional)
+	collapse
 		title = Barra de anuncio
 	checkbox
 		name = ad_bar
