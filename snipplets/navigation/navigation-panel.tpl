@@ -9,6 +9,11 @@
     </div>
 </div>
 
+{# Mobile search inside drawer #}
+<div class="nav-search-container px-3 py-2">
+    {% include "snipplets/header/header-search.tpl" %}
+</div>
+
 <div class="nav-primary">
     <ul class="nav-list" data-store="navigation" data-component="menu">
         {% include 'snipplets/navigation/navigation-nav-list.tpl' with { 'hamburger' : true  } %}

@@ -63,7 +63,7 @@
 				class="{% if settings.ajax_cart and template != 'cart' %}js-modal-open js-fullscreen-modal-open{% endif %} btn btn-utility position-relative pr-0"
 				>
 				<svg class="icon-inline utilities-icon cart-icon mr-md-1"><use xlink:href="#cart"/></svg>
-				<span class="js-cart-widget-amount badge">{{ "{1}" | translate(cart.items_count ) }}</span>
+				<span class="js-cart-widget-amount badge {% if cart.items_count == 0 %}d-none{% endif %}">{{ "{1}" | translate(cart.items_count ) }}</span>
 			</a>	
 		</div>
 	</span>

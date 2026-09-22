@@ -139,9 +139,9 @@
                     </div>
                 {% endif %}
 
-                {# Search: Icon or box #}
+                {# Search: Icon or box (desktop only) #}
 
-                <div class="js-utility-col js-search-utility col-auto desktop-utility-col {{ search_col_md_classes }} col-utility {% if settings.search_big_mobile %}{{ show_inline_desktop_hide_mobile_class }}{% elseif settings.logo_position_mobile == 'left' %}order-1{% endif %} order-md-0">
+                <div class="js-utility-col js-search-utility col-auto desktop-utility-col {{ search_col_md_classes }} col-utility d-none d-md-inline-block order-md-0">
                     {% if settings.search_big_desktop %}
                         <span class="{{ show_block_desktop_hide_mobile_class }}">
                             {% include "snipplets/header/header-search.tpl" %}
@@ -190,13 +190,68 @@
         </div>
     </div>   
 
-    {# Mobile search big #}
-
-    {% if settings.search_big_mobile %}
+    {# Mobile search big (hidden to match requested mobile header layout) #}
+    {% if false and settings.search_big_mobile %}
         <div class="js-big-search-mobile pb-3 container {{ show_block_mobile_hide_desktop_class }}">
             {% include "snipplets/header/header-search.tpl" %}
         </div>
     {% endif %}
+
+    <style>
+    @media (max-width: 767px) {
+        .head-main {
+            background-color: var(--header-background, #000000) !important;
+        }
+        .head-logo-row {
+            padding: 8px 0 !important;
+        }
+        .head-logo-row .row {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            flex-wrap: nowrap !important;
+        }
+        .head-logo-row .js-logo-container {
+            text-align: center !important;
+            padding: 0 10px !important;
+            flex: 1 1 auto !important;
+        }
+        .head-logo-row .logo-img {
+            max-height: 36px !important;
+            width: auto !important;
+            object-fit: contain !important;
+        }
+        .head-logo-row .btn-utility {
+            padding: 6px 8px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: var(--header-foreground, #ffffff) !important;
+        }
+        .head-logo-row .btn-utility .utilities-icon {
+            font-size: 26px !important;
+            width: 26px !important;
+            height: 26px !important;
+        }
+        .js-big-search-mobile {
+            display: none !important;
+        }
+        .cart-summary .badge {
+            position: absolute;
+            top: -1px;
+            right: 1px;
+            min-width: 14px;
+            height: 14px;
+            line-height: 14px;
+            padding: 0 3px;
+            font-size: 9px;
+            font-weight: 700;
+            background-color: var(--accent-color, #c0392b);
+            color: #ffffff;
+            border-radius: 7px;
+        }
+    }
+    </style>
 
     {% if settings.logo_position_desktop == 'center' or (settings.logo_position_desktop == 'left' and settings.search_big_desktop) %}
 
