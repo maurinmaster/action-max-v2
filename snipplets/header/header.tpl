@@ -48,7 +48,7 @@
 
 {# Adbar classes #}
 
-{% set head_adbar_classes = settings.ad_bar ? 'header-with-adbar' %}
+{% set head_adbar_classes = '' %}
 
 {# Header position type #}
 
@@ -251,6 +251,9 @@
             border-radius: 7px;
         }
     }
+    .section-adbar, .js-adbar {
+        display: none !important;
+    }
     </style>
 
     {% if settings.logo_position_desktop == 'center' or (settings.logo_position_desktop == 'left' and settings.search_big_desktop) %}
@@ -263,11 +266,12 @@
         </div>
     {% endif %}
 
-    {# Adversiting bar #}
-    
+    {# Advertising bar (desativado conforme solicitado) #}
+    {#
     {% if settings.ad_bar and head_transparent %}
         {% snipplet "header/header-advertising.tpl" %}
     {% endif %}
+    #}
  
 </header>
 
@@ -277,11 +281,12 @@
 
 {% include "snipplets/notification.tpl" with {order_notification: true} %}
 
-{# Adversiting bar #}
-    
+{# Advertising bar (desativado conforme solicitado) #}
+{#    
 {% if settings.ad_bar and not head_transparent %}
     {% snipplet "header/header-advertising.tpl" %}
 {% endif %}
+#}
 
 {# Show cookie validation message #}
 

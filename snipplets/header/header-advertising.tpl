@@ -22,7 +22,7 @@
 {% set adbar_animated_text_classes = adbar_animated ? 'mr-4' : 'swiper-slide slide-container' %}
 {% set adbar_no_text_classes = not num_messages ? 'p-0' %}
 
-{% if settings.ad_bar and (num_messages or adbar_images ) %}
+{% if false and settings.ad_bar and (num_messages or adbar_images ) %}
     <section class="js-adbar section-adbar transition-soft {{ adbar_inside_head_classes }} {{ adbar_animated_classes }} {{ adbar_colors_classes }} {{ adbar_messages_classes }} {{ adbar_visibility_classes }} {{ adbar_no_text_classes }} {{ adbar_with_image_classes }}">
         {% if num_messages %}
             <div class="{{ adbar_animated_container_classes }}">
