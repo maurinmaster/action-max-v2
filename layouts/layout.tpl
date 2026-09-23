@@ -303,22 +303,24 @@
                 }
             }
 
-            /* Action Max - Banner de Confiança Acima do Rodapé */
+            /* Action Max - Banner de Confiança Integrado ao Rodapé (Tela Cheia) */
             .section-footer-trust {
-                padding-top: 35px !important;
-                padding-bottom: 30px !important;
-                background: transparent !important;
+                width: 100% !important;
+                background-color: #000000 !important;
+                border-top: 1px solid #1f2937 !important;
+                border-bottom: none !important;
+                margin-top: 40px !important;
+                margin-bottom: 0 !important;
+                padding-top: 45px !important;
+                padding-bottom: 25px !important;
+                display: block !important;
             }
-            .footer-trust-card {
-                background-color: #161616 !important;
-                border: 1px solid #27272a !important;
-                border-radius: 24px !important;
-                padding: 34px 30px !important;
-                color: #ffffff !important;
+            .footer-trust-wrapper {
                 max-width: 640px !important;
                 margin: 0 auto !important;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+                padding: 0 15px !important;
                 text-align: left !important;
+                color: #ffffff !important;
             }
             .footer-trust-title {
                 font-size: 21px !important;
@@ -327,7 +329,7 @@
                 color: #ffffff !important;
                 text-transform: uppercase !important;
                 letter-spacing: -0.01em !important;
-                margin-bottom: 22px !important;
+                margin-bottom: 24px !important;
                 font-family: 'Montserrat', sans-serif !important;
                 text-align: left !important;
             }
@@ -337,7 +339,7 @@
                 margin: 0 0 24px 0 !important;
                 display: flex !important;
                 flex-direction: column !important;
-                gap: 14px !important;
+                gap: 15px !important;
             }
             .footer-trust-item {
                 display: flex !important;
@@ -378,19 +380,22 @@
                 color: #ffffff !important;
                 font-weight: 800 !important;
             }
+            footer.js-footer {
+                margin-top: 0 !important;
+            }
 
             @media (max-width: 576px) {
                 .section-footer-trust {
-                    padding-top: 22px !important;
-                    padding-bottom: 18px !important;
+                    margin-top: 30px !important;
+                    padding-top: 35px !important;
+                    padding-bottom: 20px !important;
                 }
-                .footer-trust-card {
-                    padding: 26px 20px 24px !important;
-                    border-radius: 20px !important;
+                .footer-trust-wrapper {
+                    padding: 0 8px !important;
                 }
                 .footer-trust-title {
                     font-size: 18px !important;
-                    margin-bottom: 18px !important;
+                    margin-bottom: 20px !important;
                 }
                 .footer-trust-item {
                     font-size: 13.5px !important;

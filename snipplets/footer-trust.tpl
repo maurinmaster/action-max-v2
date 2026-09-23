@@ -1,7 +1,7 @@
-{# Banner de Confiança Action Max - Acima do rodapé #}
-<section class="section-footer-trust py-4">
+{# Banner de Confiança Action Max - Tela inteira integrado ao rodapé #}
+<section class="section-footer-trust">
     <div class="container">
-        <div class="footer-trust-card">
+        <div class="footer-trust-wrapper">
             <h2 class="footer-trust-title">
                 NÃO VENDEMOS APENAS SUPLEMENTOS. ENTREGAMOS CONFIANÇA.
             </h2>
