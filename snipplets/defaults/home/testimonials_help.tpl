@@ -1,5 +1,5 @@
 <section class="section-home section-testimonials-home position-relative overflow-none mt-3" data-store="home-testimonials">
-	<h2 class="h3 mb-4 text-center">{{ 'Testimonios' | translate }}</h2>
+	<h2 class="h3 mb-4 text-left">{{ 'Testimonios' | translate }}</h2>
 	<div class="row">
 		<div class="col-12 p-0 px-md-3">
 			<div class="js-swiper-testimonials-demo swiper-testimonials swiper-container">

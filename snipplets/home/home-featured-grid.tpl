@@ -103,7 +103,7 @@
 <div class="js-products-{{ section_id }}-container container">
     <div class="row">
         <div class="js-products-{{ section_id }}-col col-12{% if use_slider %} pr-0 pr-md-3{% endif %}">
-            <h2 class="js-products-{{ section_id }}-title section-title h3 mb-4 text-center" {% if not section_title %}style="display: none;"{% endif %}>{{ section_title }}</h2>
+            <h2 class="js-products-{{ section_id }}-title section-title h3 mb-4 text-left" {% if not section_title %}style="display: none;"{% endif %}>{{ section_title }}</h2>
             {% if use_slider %}
                 <div class="js-swiper-{{ section_id }} swiper-container">
             {% endif %}

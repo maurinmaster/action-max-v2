@@ -303,6 +303,16 @@
                 }
             }
 
+            /* Alinhamento dos títulos das seções Mais Vendidos e Depoimentos */
+            .js-products-best-seller-title,
+            .section-best-seller-products-home .section-title,
+            .section-featured-home .section-title,
+            .section-testimonials-home h2,
+            .section-testimonials-home .h3 {
+                text-align: start !important;
+                text-align: left !important;
+            }
+
             /* Action Max - Banner de Confiança Integrado ao Rodapé (Tela Cheia) */
             .section-footer-trust {
                 width: 100% !important;

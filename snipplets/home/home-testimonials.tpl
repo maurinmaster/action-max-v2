@@ -18,7 +18,7 @@
 
 		<div class="container">
 			{% if settings.testimonials_title %}
-				<h2 class="h3 mb-4 text-center">{{ settings.testimonials_title }}</h2>
+				<h2 class="h3 mb-4 text-left">{{ settings.testimonials_title }}</h2>
 			{% endif %}
 			<div class="row">
 				<div class="col-12{% if num_testimonials > 1 %} p-0 px-md-3{% endif %}">
