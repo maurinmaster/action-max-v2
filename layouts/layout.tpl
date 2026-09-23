@@ -38,7 +38,11 @@
 
             {% include "static/css/style-tokens.tpl" %}
 
-            .section-adbar, .js-adbar, [data-store="advertising-bar"] {
+            .section-adbar, .js-adbar, [data-store="advertising-bar"],
+            [data-slot="after_header"],
+            [data-nubesdk-slot="after_header"],
+            .js-nubesdk-slot[data-nubesdk-slot="after_header"],
+            div[data-slot="after_header"] {
                 display: none !important;
             }
         </style>
@@ -186,8 +190,8 @@
         <script>
             (function() {
                 function removeAdbar() {
-                    var els = document.querySelectorAll('.section-adbar, .js-adbar, [data-store="advertising-bar"]');
-                    els.forEach(function(el) { el.remove(); });
+                    var els = document.querySelectorAll('.section-adbar, .js-adbar, [data-store="advertising-bar"], [data-slot="after_header"], [data-nubesdk-slot="after_header"], div[data-slot="after_header"]');
+                    els.forEach(function(el) { el.style.setProperty('display', 'none', 'important'); el.remove(); });
                 }
                 removeAdbar();
                 if (document.readyState === 'loading') {

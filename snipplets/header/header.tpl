@@ -251,7 +251,11 @@
             border-radius: 7px;
         }
     }
-    .section-adbar, .js-adbar {
+    .section-adbar, .js-adbar,
+    [data-slot="after_header"],
+    [data-nubesdk-slot="after_header"],
+    .js-nubesdk-slot[data-nubesdk-slot="after_header"],
+    div[data-slot="after_header"] {
         display: none !important;
     }
     </style>
@@ -275,7 +279,8 @@
  
 </header>
 
-{{ component('nubesdk-slot', { type: "after_header" }) }}
+{# Slot after_header desativado conforme solicitado #}
+{# {{ component('nubesdk-slot', { type: "after_header" }) }} #}
 
 {# Follow order notification #}
 
