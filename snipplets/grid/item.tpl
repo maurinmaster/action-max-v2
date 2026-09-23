@@ -267,21 +267,21 @@
                                 </div>
                             </div>
 
-                            {# Botão vermelho com fonte branca abaixo com o nome Adicionar ao carrinho #}
+                            {# Botão vermelho com fonte branca abaixo com o nome Comprar #}
                             {% if product.available and not reduced_item %}
                                 <div class="item-actions">
                                     {% set quickshop_button_classes = 'btn btn-primary btn-add-to-cart' %}
                                     {% set state = store.is_catalog ? 'catalog' : (product.available ? 'cart' : 'nostock') %}
 
                                     {% if product.isSubscribable() %}
-                                        <a href="{{ product_url_with_selected_variant }}" class="{{ quickshop_button_classes }}" title="Adicionar ao carrinho {{ product.name }}" aria-label="Adicionar ao carrinho {{ product.name }}">
-                                            Adicionar ao carrinho
+                                        <a href="{{ product_url_with_selected_variant }}" class="{{ quickshop_button_classes }}" title="Comprar {{ product.name }}" aria-label="Comprar {{ product.name }}">
+                                            Comprar
                                         </a>
                                     {% else %}
                                         {% if product.variations %}
                                             {# Open quickshop popup if has variants #}
-                                            <span data-toggle="#quickshop-modal" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-modal-open {{ quickshop_button_classes }}" title="Adicionar ao carrinho {{ product.name }}" aria-label="Adicionar ao carrinho {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
-                                                <span class="js-open-quickshop-wording">Adicionar ao carrinho</span>
+                                            <span data-toggle="#quickshop-modal" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-modal-open {{ quickshop_button_classes }}" title="Comprar {{ product.name }}" aria-label="Comprar {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
+                                                <span class="js-open-quickshop-wording">Comprar</span>
                                             </span>
                                         {% else %}
                                             {# If not variants add directly to cart #}
@@ -289,7 +289,7 @@
                                                 <input type="hidden" name="add_to_cart" value="{{product.id}}" />
                                                 
                                                 <div class="js-item-submit-container item-submit-container position-relative w-100">
-                                                    <input type="submit" class="js-addtocart js-prod-submit-form js-quickshop-icon-add {{ quickshop_button_classes }} {{ state }}" value="Adicionar ao carrinho" alt="Adicionar ao carrinho" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
+                                                    <input type="submit" class="js-addtocart js-prod-submit-form js-quickshop-icon-add {{ quickshop_button_classes }} {{ state }}" value="Comprar" alt="Comprar" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
                                                 </div>
 
                                                 {# Fake add to cart CTA visible during add to cart event #}
