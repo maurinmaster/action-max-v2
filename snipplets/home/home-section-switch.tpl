@@ -218,4 +218,9 @@
 		{% include 'snipplets/home/home-testimonials.tpl' %}
 	{% endif %}
 
+{% elseif section_select == 'routine' %}
+
+	{#  **** Routine cards ****  #}
+	{% include 'snipplets/home/home-routine.tpl' %}
+
 {% endif %}

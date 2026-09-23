@@ -574,6 +574,109 @@ Página de inicio
 		advanced = true
 		default = home_order_position
 	collapse
+		title = Sua rotina (Do acordar ao deitar)
+		backto = home_order_position
+	checkbox
+		name = routine_show
+		description = Mostrar módulo de rotina
+	i18n_input
+		name = routine_title
+		description = Título da seção
+	i18n_input
+		name = routine_subtitle
+		description = Subtítulo da seção
+	color
+		name = routine_background_color
+		description = Cor de fundo da seção
+	subtitle
+		subtitle = CARD 1 - MANHÃ
+	dropdown
+		name = routine_card_01_icon
+		description = Ícone
+		values
+			sun = Sol (Manhã)
+			dumbbell = Halter (Treino)
+			briefcase = Maleta (Dia a dia)
+			moon = Lua (Noite)
+			zap = Raio (Energia)
+			heart = Coração (Saúde)
+			coffee = Café (Foco)
+	i18n_input
+		name = routine_card_01_title
+		description = Momento / Título
+	i18n_input
+		name = routine_card_01_product
+		description = Nome do produto
+	i18n_input
+		name = routine_card_01_url
+		description = Link para o produto
+	subtitle
+		subtitle = CARD 2 - TREINO
+	dropdown
+		name = routine_card_02_icon
+		description = Ícone
+		values
+			dumbbell = Halter (Treino)
+			sun = Sol (Manhã)
+			briefcase = Maleta (Dia a dia)
+			moon = Lua (Noite)
+			zap = Raio (Energia)
+			heart = Coração (Saúde)
+			coffee = Café (Foco)
+	i18n_input
+		name = routine_card_02_title
+		description = Momento / Título
+	i18n_input
+		name = routine_card_02_product
+		description = Nome do produto
+	i18n_input
+		name = routine_card_02_url
+		description = Link para o produto
+	subtitle
+		subtitle = CARD 3 - DIA A DIA
+	dropdown
+		name = routine_card_03_icon
+		description = Ícone
+		values
+			briefcase = Maleta (Dia a dia)
+			sun = Sol (Manhã)
+			dumbbell = Halter (Treino)
+			moon = Lua (Noite)
+			zap = Raio (Energia)
+			heart = Coração (Saúde)
+			coffee = Café (Foco)
+	i18n_input
+		name = routine_card_03_title
+		description = Momento / Título
+	i18n_input
+		name = routine_card_03_product
+		description = Nome do produto
+	i18n_input
+		name = routine_card_03_url
+		description = Link para o produto
+	subtitle
+		subtitle = CARD 4 - NOITE
+	dropdown
+		name = routine_card_04_icon
+		description = Ícone
+		values
+			moon = Lua (Noite)
+			sun = Sol (Manhã)
+			dumbbell = Halter (Treino)
+			briefcase = Maleta (Dia a dia)
+			zap = Raio (Energia)
+			heart = Coração (Saúde)
+			coffee = Café (Foco)
+	i18n_input
+		name = routine_card_04_title
+		description = Momento / Título
+	i18n_input
+		name = routine_card_04_product
+		description = Nome do produto
+	i18n_input
+		name = routine_card_04_url
+		description = Link para o produto
+	collapse
 		title = Carrusel de imágenes
 		backto = home_order_position
 	checkbox

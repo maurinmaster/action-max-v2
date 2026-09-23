@@ -4832,3 +4832,44 @@ pt "Link do anúncio (opcional)"
 en "Announcement link (optional)"
 es_mx "Enlace del anuncio (opcional)"
 
+es "Sua rotina (Do acordar ao deitar)"
+pt "Sua rotina (Do acordar ao deitar)"
+en "Your routine (From wake up to bedtime)"
+es_mx "Tu rutina (De despertar a dormir)"
+
+es "Mostrar módulo de rotina"
+pt "Mostrar módulo de rotina"
+en "Show routine module"
+es_mx "Mostrar módulo de rutina"
+
+es "Título da seção"
+pt "Título da seção"
+en "Section title"
+es_mx "Título de la sección"
+
+es "Subtítulo da seção"
+pt "Subtítulo da seção"
+en "Section subtitle"
+es_mx "Subtítulo de la sección"
+
+es "Cor de fundo da seção"
+pt "Cor de fundo da seção"
+en "Section background color"
+es_mx "Color de fondo de la sección"
+
+es "Momento / Título"
+pt "Momento / Título"
+en "Moment / Title"
+es_mx "Momento / Título"
+
+es "Nome do produto"
+pt "Nome do produto"
+en "Product name"
+es_mx "Nombre del producto"
+
+es "Link para o produto"
+pt "Link para o produto"
+en "Product link"
+es_mx "Enlace al producto"
+
+

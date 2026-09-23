@@ -36,9 +36,21 @@
         {% if section_select not in newArray %}
             {% include 'snipplets/home/home-section-switch.tpl' %}
             {% set newArray = newArray|merge([section_select]) %}
+
+            {# Exibe módulo de rotina logo abaixo do slider se ativo e ainda não posicionado #}
+            {% if section_select == 'slider' and 'routine' not in newArray and (settings.routine_show is not defined or settings.routine_show) %}
+                {% include 'snipplets/home/home-routine.tpl' %}
+                {% set newArray = newArray|merge(['routine']) %}
+            {% endif %}
         {% endif %}
 
     {% endfor %}
+
+    {# Caso o slider não esteja presente, exibe a rotina se ainda não renderizada #}
+    {% if 'routine' not in newArray and (settings.routine_show is not defined or settings.routine_show) %}
+        {% include 'snipplets/home/home-routine.tpl' %}
+        {% set newArray = newArray|merge(['routine']) %}
+    {% endif %}
 
     {#  **** Hidden Sections ****  #}
     {% if show_component_help %}
