@@ -214,88 +214,91 @@
                         {% set product_rating = random_ratings[rating_idx] %}
 
                         <div class="item-details-container" data-store="product-item-price-{{ product.id }}">
-                            {# Canto Esquerdo: Preço original rasurado cinzento + Preço promocional em vermelho mostrando em 6 parcelas #}
-                            <div class="item-details-left">
-                                <a href="{{ product_url_with_selected_variant }}" class="item-link">
-                                    {% if not reduced_item %}
-                                        <div class="item-price-compare">
-                                            <span class="js-compare-price-display price-compare font-smallest">
-                                                {{ original_price | money }}
+                            <div class="item-details-row">
+                                {# Canto Esquerdo: Preço original rasurado cinzento + Preço promocional em vermelho mostrando em 6 parcelas #}
+                                <div class="item-details-left">
+                                    <a href="{{ product_url_with_selected_variant }}" class="item-link">
+                                        {% if not reduced_item %}
+                                            <div class="item-price-compare">
+                                                <span class="js-compare-price-display price-compare font-smallest">
+                                                    {{ original_price | money }}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+
+                                        <div class="item-price-promo">
+                                            <span class="item-price-installment font-weight-bold">
+                                                6x de {{ installment_6_cents | money }}
+                                            </span>
+                                            {# Hidden standard price span for JS variant updates #}
+                                            <span class="js-price-display item-price d-none" data-product-price="{{ product.price }}">
+                                                {{ product.price | money }}
                                             </span>
                                         </div>
-                                    {% endif %}
 
-                                    <div class="item-price-promo">
-                                        <span class="item-price-installment font-weight-bold">
-                                            6x de {{ installment_6_cents | money }}
-                                        </span>
-                                        {# Hidden standard price span for JS variant updates #}
-                                        <span class="js-price-display item-price d-none" data-product-price="{{ product.price }}">
-                                            {{ product.price | money }}
-                                        </span>
-                                    </div>
-
-                                    {% if not reduced_item %}
-                                        <div class="item-price-cash font-smallest mt-1">
-                                            {% if settings.payment_discount_price %}
-                                                {{ component('payment-discount-price', {
-                                                        visibility_condition: true,
-                                                        location: 'product',
-                                                        container_classes: "d-inline-block",
-                                                        text_classes: {
-                                                            price: 'font-weight-semibold',
-                                                        },
-                                                    }) 
-                                                }}
-                                            {% else %}
-                                                <span>ou {{ product.price | money }} à vista</span>
-                                            {% endif %}
-                                        </div>
-                                    {% endif %}
-                                </a>
-                            </div>
-
-                            {# Canto Direito: Estrela amarela com a nota ao lado + Botão vermelho com fonte branca abaixo Adicionar ao carrinho #}
-                            <div class="item-details-right">
-                                <div class="item-rating" title="Avaliação {{ product_rating }}">
-                                    <svg class="item-star-icon" viewBox="0 0 20 20" fill="#f59e0b">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                    </svg>
-                                    <span class="item-rating-score">{{ product_rating }}</span>
+                                        {% if not reduced_item %}
+                                            <div class="item-price-cash font-smallest mt-1">
+                                                {% if settings.payment_discount_price %}
+                                                    {{ component('payment-discount-price', {
+                                                            visibility_condition: true,
+                                                            location: 'product',
+                                                            container_classes: "d-inline-block",
+                                                            text_classes: {
+                                                                price: 'font-weight-semibold',
+                                                            },
+                                                        }) 
+                                                    }}
+                                                {% else %}
+                                                    <span>ou {{ product.price | money }} à vista</span>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                    </a>
                                 </div>
 
-                                {% if product.available and not reduced_item %}
-                                    <div class="item-actions">
-                                        {% set quickshop_button_classes = 'btn btn-primary btn-add-to-cart' %}
-                                        {% set state = store.is_catalog ? 'catalog' : (product.available ? 'cart' : 'nostock') %}
-
-                                        {% if product.isSubscribable() %}
-                                            <a href="{{ product_url_with_selected_variant }}" class="{{ quickshop_button_classes }}" title="Adicionar ao carrinho {{ product.name }}" aria-label="Adicionar ao carrinho {{ product.name }}">
-                                                Adicionar ao carrinho
-                                            </a>
-                                        {% else %}
-                                            {% if product.variations %}
-                                                {# Open quickshop popup if has variants #}
-                                                <span data-toggle="#quickshop-modal" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-modal-open {{ quickshop_button_classes }}" title="Adicionar ao carrinho {{ product.name }}" aria-label="Adicionar ao carrinho {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
-                                                    <span class="js-open-quickshop-wording">Adicionar ao carrinho</span>
-                                                </span>
-                                            {% else %}
-                                                {# If not variants add directly to cart #}
-                                                <form class="js-product-form" method="post" action="{{ store.cart_url }}">
-                                                    <input type="hidden" name="add_to_cart" value="{{product.id}}" />
-                                                    
-                                                    <div class="js-item-submit-container item-submit-container position-relative w-100">
-                                                        <input type="submit" class="js-addtocart js-prod-submit-form js-quickshop-icon-add {{ quickshop_button_classes }} {{ state }}" value="Adicionar ao carrinho" alt="Adicionar ao carrinho" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
-                                                    </div>
-
-                                                    {# Fake add to cart CTA visible during add to cart event #}
-                                                    {% include 'snipplets/placeholders/button-placeholder.tpl' with {direct_add: true} %}
-                                                </form>
-                                            {% endif %}
-                                        {% endif %}
+                                {# Canto Direito: Estrela amarela com a nota ao lado (4.7 a 5) #}
+                                <div class="item-details-right">
+                                    <div class="item-rating" title="Avaliação {{ product_rating }}">
+                                        <svg class="item-star-icon" viewBox="0 0 20 20" fill="#f59e0b">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        <span class="item-rating-score">{{ product_rating }}</span>
                                     </div>
-                                {% endif %}
+                                </div>
                             </div>
+
+                            {# Botão vermelho com fonte branca abaixo com o nome Adicionar ao carrinho #}
+                            {% if product.available and not reduced_item %}
+                                <div class="item-actions">
+                                    {% set quickshop_button_classes = 'btn btn-primary btn-add-to-cart' %}
+                                    {% set state = store.is_catalog ? 'catalog' : (product.available ? 'cart' : 'nostock') %}
+
+                                    {% if product.isSubscribable() %}
+                                        <a href="{{ product_url_with_selected_variant }}" class="{{ quickshop_button_classes }}" title="Adicionar ao carrinho {{ product.name }}" aria-label="Adicionar ao carrinho {{ product.name }}">
+                                            Adicionar ao carrinho
+                                        </a>
+                                    {% else %}
+                                        {% if product.variations %}
+                                            {# Open quickshop popup if has variants #}
+                                            <span data-toggle="#quickshop-modal" class="js-quickshop-modal-open {% if slide_item %}js-quickshop-slide{% endif %} js-modal-open {{ quickshop_button_classes }}" title="Adicionar ao carrinho {{ product.name }}" aria-label="Adicionar ao carrinho {{ product.name }}" data-component="product-list-item.add-to-cart" data-component-value="{{product.id}}">
+                                                <span class="js-open-quickshop-wording">Adicionar ao carrinho</span>
+                                            </span>
+                                        {% else %}
+                                            {# If not variants add directly to cart #}
+                                            <form class="js-product-form" method="post" action="{{ store.cart_url }}">
+                                                <input type="hidden" name="add_to_cart" value="{{product.id}}" />
+                                                
+                                                <div class="js-item-submit-container item-submit-container position-relative w-100">
+                                                    <input type="submit" class="js-addtocart js-prod-submit-form js-quickshop-icon-add {{ quickshop_button_classes }} {{ state }}" value="Adicionar ao carrinho" alt="Adicionar ao carrinho" {% if state == 'nostock' %}disabled{% endif %} data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"/>
+                                                </div>
+
+                                                {# Fake add to cart CTA visible during add to cart event #}
+                                                {% include 'snipplets/placeholders/button-placeholder.tpl' with {direct_add: true} %}
+                                            </form>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
                         </div>
                     {% endif %}
                 {% endif %}

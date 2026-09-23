@@ -3,10 +3,10 @@
         <span class="js-addtocart-text">
             {% if direct_add %}
                 <div class="d-flex justify-content-center align-items-center">
-                    {{ 'Comprar' | translate }}
+                    Adicionar ao carrinho
                 </div>
             {% else %}
-                {{ 'Agregar al carrito' | translate }}
+                Adicionar ao carrinho
             {% endif %}
         </span>
         <span class="js-addtocart-success transition-container">

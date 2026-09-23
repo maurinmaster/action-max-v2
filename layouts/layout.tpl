@@ -111,11 +111,18 @@
             .item-product .item-details-container,
             .js-item-product .item-details-container {
                 display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+                margin-top: 8px !important;
+                width: 100% !important;
+            }
+            .item-product .item-details-row,
+            .js-item-product .item-details-row {
+                display: flex !important;
                 justify-content: space-between !important;
                 align-items: flex-end !important;
-                gap: 6px !important;
-                margin-top: 6px !important;
                 width: 100% !important;
+                gap: 6px !important;
             }
             .item-product .item-details-left,
             .js-item-product .item-details-left {
@@ -152,7 +159,7 @@
             .item-product .item-price-installment,
             .js-item-product .item-price-installment {
                 color: #c0392b !important;
-                font-size: 14.5px !important;
+                font-size: 15px !important;
                 font-weight: 800 !important;
                 display: block !important;
                 text-align: left !important;
@@ -165,7 +172,7 @@
             }
             .item-product .item-price-cash,
             .js-item-product .item-price-cash {
-                font-size: 10.5px !important;
+                font-size: 11px !important;
                 color: #64748b !important;
                 font-weight: 500 !important;
                 text-align: left !important;
@@ -175,23 +182,22 @@
             }
             .item-product .item-price-cash .js-payment-discount-price-container,
             .js-item-product .item-price-cash .js-payment-discount-price-container {
-                font-size: 10.5px !important;
+                font-size: 11px !important;
                 color: #64748b !important;
                 font-weight: 500 !important;
                 display: inline-block !important;
                 margin: 0 !important;
             }
 
-            /* Canto direito: estrela amarela com nota + botão abaixo */
+            /* Canto direito: estrela amarela com nota */
             .item-product .item-details-right,
             .js-item-product .item-details-right {
                 display: flex !important;
-                flex-direction: column !important;
                 align-items: flex-end !important;
-                justify-content: space-between !important;
+                justify-content: flex-end !important;
                 flex: 0 0 auto !important;
-                gap: 5px !important;
                 text-align: right !important;
+                padding-bottom: 2px !important;
             }
             .item-product .item-rating,
             .js-item-product .item-rating {
@@ -200,6 +206,10 @@
                 justify-content: flex-end !important;
                 gap: 3px !important;
                 line-height: 1 !important;
+                background: #fffbeb !important;
+                border: 1px solid #fef3c7 !important;
+                padding: 3px 6px !important;
+                border-radius: 6px !important;
             }
             .item-product .item-star-icon,
             .js-item-product .item-star-icon {
@@ -213,61 +223,74 @@
             .item-product .item-rating-score,
             .js-item-product .item-rating-score {
                 font-size: 12.5px !important;
-                font-weight: 700 !important;
-                color: #374151 !important;
+                font-weight: 800 !important;
+                color: #92400e !important;
             }
 
-            /* Botão vermelho com fonte branca abaixo no canto direito */
+            /* Botão vermelho com fonte branca abaixo */
             .item-product .item-actions,
             .js-item-product .item-actions {
-                margin-top: 0 !important;
-                text-align: right !important;
-                width: auto !important;
+                margin-top: 4px !important;
+                text-align: center !important;
+                width: 100% !important;
             }
             .item-product .item-actions .btn,
             .js-item-product .item-actions .btn,
             .item-product .btn-add-to-cart,
-            .js-item-product .btn-add-to-cart {
+            .js-item-product .btn-add-to-cart,
+            .item-product .item-actions input[type="submit"],
+            .js-item-product .item-actions input[type="submit"] {
+                width: 100% !important;
                 border-radius: 8px !important;
-                font-size: 11px !important;
+                font-size: 12px !important;
                 font-weight: 700 !important;
-                padding: 6px 10px !important;
+                padding: 8px 12px !important;
                 background-color: #c0392b !important;
                 border: 1px solid #c0392b !important;
                 color: #ffffff !important;
                 transition: background-color 0.2s ease, transform 0.15s ease !important;
                 cursor: pointer !important;
-                display: inline-block !important;
+                display: block !important;
                 text-align: center !important;
                 line-height: 1.2 !important;
-                white-space: normal !important;
+                white-space: nowrap !important;
+                text-decoration: none !important;
             }
             .item-product .item-actions .btn:hover,
             .js-item-product .item-actions .btn:hover,
             .item-product .btn-add-to-cart:hover,
-            .js-item-product .btn-add-to-cart:hover {
+            .js-item-product .btn-add-to-cart:hover,
+            .item-product .item-actions input[type="submit"]:hover,
+            .js-item-product .item-actions input[type="submit"]:hover {
                 background-color: #a93226 !important;
                 border-color: #a93226 !important;
-                transform: scale(1.02) !important;
+                color: #ffffff !important;
+                transform: translateY(-1px) !important;
+            }
+
+            /* Esconde placeholder que exibia texto antigo Comprar */
+            .item-product .item-actions .js-addtocart-placeholder,
+            .js-item-product .item-actions .js-addtocart-placeholder {
+                display: none !important;
             }
 
             @media (max-width: 576px) {
                 .item-product .item-price-installment,
                 .js-item-product .item-price-installment {
-                    font-size: 12.5px !important;
+                    font-size: 13px !important;
                 }
                 .item-product .item-price-cash,
                 .js-item-product .item-price-cash {
-                    font-size: 9.5px !important;
+                    font-size: 10px !important;
                 }
                 .item-product .item-actions .btn,
                 .js-item-product .item-actions .btn,
                 .item-product .btn-add-to-cart,
-                .js-item-product .btn-add-to-cart {
-                    font-size: 9.5px !important;
-                    padding: 5px 6px !important;
-                    max-width: 82px !important;
-                    line-height: 1.15 !important;
+                .js-item-product .btn-add-to-cart,
+                .item-product .item-actions input[type="submit"],
+                .js-item-product .item-actions input[type="submit"] {
+                    font-size: 11px !important;
+                    padding: 7px 8px !important;
                 }
                 .item-product .item-rating-score,
                 .js-item-product .item-rating-score {
