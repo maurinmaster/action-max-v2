@@ -3120,6 +3120,25 @@ input[type=number] {
   overflow: hidden;
   margin-bottom: 15px;
 }
+.item-product .item {
+  border: 1px solid #e5e7eb;
+  border-top: 4px solid #c0392b !important;
+  border-radius: 14px;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  padding: 10px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 15px);
+}
+.item-product .item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
 .item-actions .icon-inline {
   margin-top: -2px;
 }
@@ -3184,6 +3203,11 @@ input[type=number] {
   padding: 10px;
   background: var(--main-background)
 }
+.item-product .item-description {
+  background: transparent;
+  padding: 8px 4px 0;
+  text-align: center;
+}
 .item-name {
   line-height: 1.333em;
   text-overflow: ellipsis;
@@ -3192,12 +3216,45 @@ input[type=number] {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+.item-product .item-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111827;
+  opacity: 1;
+  text-align: center;
+  margin-bottom: 6px;
+}
 .item-link {
   color: var(--main-foreground);
   fill: var(--main-foreground);
 }
 .item-price {
   color: var(--main-foreground);
+}
+.item-product .item-price,
+.item-product .item-price-installment {
+  color: #c0392b !important;
+  font-weight: 700 !important;
+}
+.item-product .item-price-cash {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 3px;
+}
+.item-product .item-price-cash .js-payment-discount-price-container {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  margin: 0 !important;
+}
+.item-product .item-price-cash .js-payment-discount-price-container::before {
+  content: "ou ";
+}
+.item-product .item-price-cash .js-payment-discount-price-container ~ .item-cash-fallback {
+  display: none !important;
 }
 .item-price-container { 
   font-size: var(--font-small);

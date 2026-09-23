@@ -49,7 +49,111 @@
 
 {# Secondary images #}
 
-{% set show_secondary_image = settings.product_hover %}
+{% if loop.first or loop.index is not defined %}
+<style>
+/* Action Max - Estilo dos Cards de Produto */
+.item-product .item {
+    border: 1px solid #e5e7eb !important;
+    border-top: 4px solid #c0392b !important;
+    border-radius: 14px !important;
+    background-color: #ffffff !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    text-align: center !important;
+    padding: 10px 8px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: calc(100% - 15px) !important;
+}
+.item-product .item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08) !important;
+}
+.item-product .item-image {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+}
+.item-product .item-description {
+    background: transparent !important;
+    padding: 8px 4px 0 !important;
+    text-align: center !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+.item-product .item-name {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    opacity: 1 !important;
+    text-align: center !important;
+    margin-bottom: 6px !important;
+    line-height: 1.35 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+.item-product .item-price-container {
+    text-align: center !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+.item-product .item-price-installment,
+.item-product .item-price-main-highlight .item-price {
+    color: #c0392b !important;
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    display: block !important;
+    text-align: center !important;
+    line-height: 1.25 !important;
+}
+.item-product .item-price-cash {
+    font-size: 11.5px !important;
+    color: #64748b !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    margin-top: 3px !important;
+    line-height: 1.3 !important;
+}
+.item-product .item-price-cash .js-payment-discount-price-container {
+    font-size: 11.5px !important;
+    color: #64748b !important;
+    font-weight: 500 !important;
+    display: inline-block !important;
+    margin: 0 !important;
+}
+.item-product .item-price-cash .js-payment-discount-price-container::before {
+    content: "ou ";
+}
+.item-product .item-price-cash .js-payment-discount-price-container ~ .item-cash-fallback {
+    display: none !important;
+}
+.item-product .item-actions {
+    text-align: center !important;
+    margin-top: 8px !important;
+    width: 100% !important;
+}
+.item-product .item-actions .btn {
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    padding: 6px 14px !important;
+    background-color: #c0392b !important;
+    border-color: #c0392b !important;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease !important;
+}
+.item-product .item-actions .btn:hover {
+    background-color: #a93226 !important;
+    border-color: #a93226 !important;
+}
+</style>
+{% endif %}
 
     <div class="js-item-product{% if slide_item %} js-item-slide swiper-slide{% endif %} col-{{ mobile_column_class }} col-md-{{ desktop_column_class }} item-product col-grid {% if reduced_item %}item-product-reduced{% endif %}" data-product-type="list" data-product-id="{{ product.id }}" data-store="product-item-{{ product.id }}" data-component="product-list-item" data-component-value="{{ product.id }}">
         <div class="item {% if reduced_item %}mb-0{% endif %}">
@@ -197,37 +301,64 @@
                                 },
                             }) }}
                         {% else %}
-                            {# Normal products: original price display #}
-                            <div class="item-price-container {% if settings.quick_shop and not reduced_item %}mb-3{% endif %}" data-store="product-item-price-{{ product.id }}">
-                                <div class="d-block mb-1 mr-1">
-                                    <span class="js-price-display item-price font-weight-bold {% if settings.payment_discount_price %}font-body{% endif %}" data-product-price="{{ product.price }}">
-                                        {{ product.price | money }}
-                                    </span>
+                            {# Normal products: price display with red installments & reduced cash condition #}
+                            {% set max_installments_without_interests = product.get_max_installments(false) %}
+                            {% set max_installments_with_interests = product.get_max_installments(true) %}
+                            {% set max_installments = max_installments_without_interests ? max_installments_without_interests : (product.get_max_installments ? product.get_max_installments : max_installments_with_interests) %}
+                            {% set has_installments = product.show_installments and max_installments and max_installments.installment > 1 and not reduced_item %}
+
+                            <div class="item-price-container {% if settings.quick_shop and not reduced_item %}mb-2{% endif %}" data-store="product-item-price-{{ product.id }}">
+                                
+                                {# Original strikethrough price if compare_at_price exists #}
+                                {% if not reduced_item and product.compare_at_price and product.compare_at_price > product.price %}
+                                    <div class="item-price-compare mb-1 text-center">
+                                        <span class="js-compare-price-display price-compare font-smallest">
+                                            {{ product.compare_at_price | money }}
+                                        </span>
+                                    </div>
+                                {% elseif not reduced_item %}
+                                    <span class="js-compare-price-display price-compare" style="display:none;"></span>
+                                {% endif %}
+
+                                {# Main highlighted price in red #}
+                                <div class="item-price-main-highlight text-center">
+                                    {% if has_installments %}
+                                        {# Parcelado as prominent red text #}
+                                        <span class="item-price-installment font-weight-bold" style="color: #c0392b; font-size: 15px;">
+                                            {{ max_installments.installment }}x de {{ max_installments.installment_data.installment_value | money }}
+                                        </span>
+                                        {# Hidden standard price span for JS variant updates #}
+                                        <span class="js-price-display item-price d-none" data-product-price="{{ product.price }}">
+                                            {{ product.price | money }}
+                                        </span>
+                                    {% else %}
+                                        {# Standard price in red #}
+                                        <span class="js-price-display item-price font-weight-bold" style="color: #c0392b; font-size: 15px;" data-product-price="{{ product.price }}">
+                                            {{ product.price | money }}
+                                        </span>
+                                    {% endif %}
+
                                     {% if not reduced_item %}
                                         {% include 'snipplets/labels.tpl' %}
                                     {% endif %}
                                 </div>
+
+                                {# Cash / à vista condition in reduced size #}
                                 {% if not reduced_item %}
-                                    <span class="js-compare-price-display price-compare" {% if not product.compare_at_price or not product.display_price %}style="display:none;"{% else %}style="display:inline-block;"{% endif %}>
-                                        {{ product.compare_at_price | money }}
-                                    </span>
-                                {% endif %}
-
-                                {% set product_can_show_installments = product.show_installments and product.display_price and product.get_max_installments.installment > 1 and settings.product_installments and not reduced_item %}
-
-                                {% set discount_price_spacing_classes = product_can_show_installments ? 'mb-2' %}
-
-                                {{ component('payment-discount-price', {
-                                        visibility_condition: settings.payment_discount_price and not reduced_item,
-                                        location: 'product',
-                                        container_classes: discount_price_spacing_classes ~ " mt-2 font-weight-bold font-smallest",
-                                        text_classes: {
-                                            price: 'font-small',
-                                        },
-                                    }) 
-                                }}
-                                {% if product_can_show_installments %}
-                                    {{ component('installments', {'location' : 'product_item' , 'short_wording' : true, container_classes: { installment: "item-installments mt-2"}}) }}
+                                    <div class="item-price-cash font-smallest text-center mt-1">
+                                        {% if settings.payment_discount_price %}
+                                            {{ component('payment-discount-price', {
+                                                    visibility_condition: true,
+                                                    location: 'product',
+                                                    container_classes: "d-inline-block",
+                                                    text_classes: {
+                                                        price: 'font-weight-semibold',
+                                                    },
+                                                }) 
+                                            }}
+                                        {% endif %}
+                                        <span class="item-cash-fallback">ou {{ product.price | money }} à vista</span>
+                                    </div>
                                 {% endif %}
                             </div>
                         {% endif %}
