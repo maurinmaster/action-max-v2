@@ -14,13 +14,14 @@
             width: 100%;
             position: relative;
             z-index: 101;
-            padding: 7px 14px;
+            padding: 7px 14px 8px;
             font-size: 13px;
             line-height: 1.35;
             font-weight: 500;
             letter-spacing: 0.2px;
             text-align: center;
             box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         .section-top-announcement-bar .top-announcement-bar-content {
@@ -44,7 +45,7 @@
         }
         @media (max-width: 767px) {
             .section-top-announcement-bar {
-                padding: 6px 12px;
+                padding: 6px 12px 8px;
                 font-size: 12px;
                 line-height: 1.35;
             }
