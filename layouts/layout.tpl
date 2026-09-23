@@ -45,6 +45,125 @@
             div[data-slot="after_header"] {
                 display: none !important;
             }
+
+            /* Action Max - Cards de Produto */
+            .item-product .item,
+            .js-item-product .item,
+            .item-product.item {
+                border: 1px solid #e5e7eb !important;
+                border-top: 4px solid #c0392b !important;
+                border-radius: 14px !important;
+                background-color: #ffffff !important;
+                overflow: hidden !important;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+                transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+                text-align: center !important;
+                padding: 12px 10px 14px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                height: calc(100% - 15px) !important;
+                margin-bottom: 15px !important;
+            }
+            .item-product .item:hover,
+            .js-item-product .item:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08) !important;
+            }
+            .item-product .item-image,
+            .js-item-product .item-image {
+                border-radius: 10px !important;
+                overflow: hidden !important;
+                background: #ffffff !important;
+            }
+            .item-product .item-description,
+            .js-item-product .item-description {
+                background: transparent !important;
+                padding: 8px 4px 0 !important;
+                text-align: center !important;
+                flex-grow: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+            }
+            .item-product .item-name,
+            .js-item-product .item-name {
+                font-size: 13.5px !important;
+                font-weight: 700 !important;
+                color: #111827 !important;
+                opacity: 1 !important;
+                text-align: center !important;
+                margin-bottom: 6px !important;
+                line-height: 1.35 !important;
+                display: -webkit-box !important;
+                -webkit-line-clamp: 2 !important;
+                -webkit-box-orient: vertical !important;
+                overflow: hidden !important;
+            }
+            .item-product .item-price-container,
+            .js-item-product .item-price-container {
+                text-align: center !important;
+                margin-top: 4px !important;
+                margin-bottom: 4px !important;
+            }
+            .item-product .item-price-installment,
+            .js-item-product .item-price-installment,
+            .item-product .item-price-main-highlight .item-price:not(.d-none),
+            .js-item-product .item-price-main-highlight .item-price:not(.d-none) {
+                color: #c0392b !important;
+                font-size: 15px !important;
+                font-weight: 700 !important;
+                display: block !important;
+                text-align: center !important;
+                line-height: 1.25 !important;
+            }
+            .item-product .item-price.d-none,
+            .js-item-product .item-price.d-none {
+                display: none !important;
+            }
+            .item-product .item-price-cash,
+            .js-item-product .item-price-cash {
+                font-size: 11.5px !important;
+                color: #64748b !important;
+                font-weight: 500 !important;
+                text-align: center !important;
+                margin-top: 3px !important;
+                line-height: 1.3 !important;
+            }
+            .item-product .item-price-cash .js-payment-discount-price-container,
+            .js-item-product .item-price-cash .js-payment-discount-price-container {
+                font-size: 11.5px !important;
+                color: #64748b !important;
+                font-weight: 500 !important;
+                display: inline-block !important;
+                margin: 0 !important;
+            }
+            .item-product .item-price-cash .js-payment-discount-price-container::before,
+            .js-item-product .item-price-cash .js-payment-discount-price-container::before {
+                content: "ou ";
+            }
+            .item-product .item-actions,
+            .js-item-product .item-actions {
+                text-align: center !important;
+                margin-top: 8px !important;
+                width: 100% !important;
+            }
+            .item-product .item-actions .btn,
+            .js-item-product .item-actions .btn {
+                border-radius: 8px !important;
+                font-size: 12px !important;
+                font-weight: 600 !important;
+                padding: 6px 14px !important;
+                background-color: #c0392b !important;
+                border-color: #c0392b !important;
+                color: #ffffff !important;
+                transition: background-color 0.2s ease !important;
+            }
+            .item-product .item-actions .btn:hover,
+            .js-item-product .item-actions .btn:hover {
+                background-color: #a93226 !important;
+                border-color: #a93226 !important;
+            }
         </style>
 
         {# Critical CSS #}
