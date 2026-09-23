@@ -302,6 +302,108 @@
                     height: 12px !important;
                 }
             }
+
+            /* Action Max - Banner de Confiança Acima do Rodapé */
+            .section-footer-trust {
+                padding-top: 35px !important;
+                padding-bottom: 30px !important;
+                background: transparent !important;
+            }
+            .footer-trust-card {
+                background-color: #161616 !important;
+                border: 1px solid #27272a !important;
+                border-radius: 24px !important;
+                padding: 34px 30px !important;
+                color: #ffffff !important;
+                max-width: 640px !important;
+                margin: 0 auto !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+                text-align: left !important;
+            }
+            .footer-trust-title {
+                font-size: 21px !important;
+                font-weight: 900 !important;
+                line-height: 1.25 !important;
+                color: #ffffff !important;
+                text-transform: uppercase !important;
+                letter-spacing: -0.01em !important;
+                margin-bottom: 22px !important;
+                font-family: 'Montserrat', sans-serif !important;
+                text-align: left !important;
+            }
+            .footer-trust-list {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 0 24px 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 14px !important;
+            }
+            .footer-trust-item {
+                display: flex !important;
+                align-items: center !important;
+                gap: 14px !important;
+                color: #f4f4f5 !important;
+                font-size: 15px !important;
+                line-height: 1.35 !important;
+                font-family: 'Red Hat Display', sans-serif !important;
+            }
+            .footer-trust-icon {
+                width: 22px !important;
+                height: 22px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+                color: #ffffff !important;
+            }
+            .footer-trust-icon svg {
+                width: 19px !important;
+                height: 19px !important;
+                stroke: #ffffff !important;
+            }
+            .footer-trust-text {
+                font-weight: 500 !important;
+                color: #f4f4f5 !important;
+            }
+            .footer-trust-tagline {
+                font-size: 15px !important;
+                color: #a1a1aa !important;
+                font-weight: 500 !important;
+                line-height: 1.4 !important;
+                font-family: 'Red Hat Display', sans-serif !important;
+                text-align: left !important;
+            }
+            .footer-trust-tagline strong {
+                color: #ffffff !important;
+                font-weight: 800 !important;
+            }
+
+            @media (max-width: 576px) {
+                .section-footer-trust {
+                    padding-top: 22px !important;
+                    padding-bottom: 18px !important;
+                }
+                .footer-trust-card {
+                    padding: 26px 20px 24px !important;
+                    border-radius: 20px !important;
+                }
+                .footer-trust-title {
+                    font-size: 18px !important;
+                    margin-bottom: 18px !important;
+                }
+                .footer-trust-item {
+                    font-size: 13.5px !important;
+                    gap: 12px !important;
+                }
+                .footer-trust-icon svg {
+                    width: 17px !important;
+                    height: 17px !important;
+                }
+                .footer-trust-tagline {
+                    font-size: 14px !important;
+                }
+            }
         </style>
 
         {# Critical CSS #}
@@ -389,6 +491,11 @@
         {# WhatsApp chat button #}
 
         {% snipplet "whatsapp-chat.tpl" %}
+
+        {# Banner de Confiança Acima do Rodapé #}
+        {% if template != 'password' %}
+            {% include 'snipplets/footer-trust.tpl' %}
+        {% endif %}
 
         {# Footer #}
 
