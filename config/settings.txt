@@ -1616,6 +1616,7 @@ Página de inicio
 		start_index = 1
 		sections
 			slider = Carrusel de imágenes
+			routine = Sua rotina (Do acordar ao deitar)
 			main_categories = Categorías principales
 			products = Productos destacados
 			new = Productos nuevos
@@ -1635,6 +1636,9 @@ Página de inicio
 			instafeed = Publicaciones de Instagram
 			testimonials = Testimonios
 			modules = Módulos de imagen y texto
+	link
+		text = Sua rotina (Do acordar ao deitar)
+		linkto = routine_show
 	link
 		text = Pop-up promocional
 		linkto = home_promotional_popup
