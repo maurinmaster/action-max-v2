@@ -47,6 +47,7 @@
             }
 
             /* Action Max - Cards de Produto */
+            /* Action Max - Cards de Produto Remodelados */
             .item-product .item,
             .js-item-product .item,
             .item-product.item {
@@ -57,7 +58,7 @@
                 overflow: hidden !important;
                 box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
                 transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-                text-align: center !important;
+                text-align: left !important;
                 padding: 12px 10px 14px !important;
                 display: flex !important;
                 flex-direction: column !important;
@@ -79,8 +80,8 @@
             .item-product .item-description,
             .js-item-product .item-description {
                 background: transparent !important;
-                padding: 8px 4px 0 !important;
-                text-align: center !important;
+                padding: 8px 2px 0 !important;
+                text-align: left !important;
                 flex-grow: 1 !important;
                 display: flex !important;
                 flex-direction: column !important;
@@ -92,30 +93,71 @@
                 font-weight: 700 !important;
                 color: #111827 !important;
                 opacity: 1 !important;
-                text-align: center !important;
-                margin-bottom: 6px !important;
+                text-align: left !important;
+                margin-bottom: 4px !important;
                 line-height: 1.35 !important;
                 display: -webkit-box !important;
                 -webkit-line-clamp: 2 !important;
                 -webkit-box-orient: vertical !important;
                 overflow: hidden !important;
+                text-decoration: none !important;
             }
-            .item-product .item-price-container,
-            .js-item-product .item-price-container {
-                text-align: center !important;
-                margin-top: 4px !important;
-                margin-bottom: 4px !important;
+            .item-product .item-link {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+
+            /* Container inferior: Canto Esquerdo e Canto Direito */
+            .item-product .item-details-container,
+            .js-item-product .item-details-container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: flex-end !important;
+                gap: 6px !important;
+                margin-top: 6px !important;
+                width: 100% !important;
+            }
+            .item-product .item-details-left,
+            .js-item-product .item-details-left {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-end !important;
+                text-align: left !important;
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+            }
+
+            /* Canto esquerdo: Preço original rasurado cinzento */
+            .item-product .item-price-compare,
+            .js-item-product .item-price-compare {
+                font-size: 11.5px !important;
+                color: #9ca3af !important;
+                text-decoration: line-through !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1px !important;
+                display: block !important;
+            }
+            .item-product .item-price-compare .price-compare,
+            .js-item-product .item-price-compare .price-compare {
+                color: #9ca3af !important;
+                text-decoration: line-through !important;
+                font-size: 11.5px !important;
+            }
+
+            /* Canto esquerdo: Preço promocional em destaque em vermelho mostrando em 6 parcelas */
+            .item-product .item-price-promo,
+            .js-item-product .item-price-promo {
+                line-height: 1.2 !important;
             }
             .item-product .item-price-installment,
-            .js-item-product .item-price-installment,
-            .item-product .item-price-main-highlight .item-price:not(.d-none),
-            .js-item-product .item-price-main-highlight .item-price:not(.d-none) {
+            .js-item-product .item-price-installment {
                 color: #c0392b !important;
-                font-size: 15px !important;
-                font-weight: 700 !important;
+                font-size: 14.5px !important;
+                font-weight: 800 !important;
                 display: block !important;
-                text-align: center !important;
-                line-height: 1.25 !important;
+                text-align: left !important;
+                line-height: 1.2 !important;
+                white-space: nowrap !important;
             }
             .item-product .item-price.d-none,
             .js-item-product .item-price.d-none {
@@ -123,46 +165,119 @@
             }
             .item-product .item-price-cash,
             .js-item-product .item-price-cash {
-                font-size: 11.5px !important;
+                font-size: 10.5px !important;
                 color: #64748b !important;
                 font-weight: 500 !important;
-                text-align: center !important;
-                margin-top: 3px !important;
-                line-height: 1.3 !important;
+                text-align: left !important;
+                margin-top: 2px !important;
+                line-height: 1.2 !important;
+                white-space: nowrap !important;
             }
             .item-product .item-price-cash .js-payment-discount-price-container,
             .js-item-product .item-price-cash .js-payment-discount-price-container {
-                font-size: 11.5px !important;
+                font-size: 10.5px !important;
                 color: #64748b !important;
                 font-weight: 500 !important;
                 display: inline-block !important;
                 margin: 0 !important;
             }
-            .item-product .item-price-cash .js-payment-discount-price-container::before,
-            .js-item-product .item-price-cash .js-payment-discount-price-container::before {
-                content: "ou ";
+
+            /* Canto direito: estrela amarela com nota + botão abaixo */
+            .item-product .item-details-right,
+            .js-item-product .item-details-right {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-end !important;
+                justify-content: space-between !important;
+                flex: 0 0 auto !important;
+                gap: 5px !important;
+                text-align: right !important;
             }
+            .item-product .item-rating,
+            .js-item-product .item-rating {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: flex-end !important;
+                gap: 3px !important;
+                line-height: 1 !important;
+            }
+            .item-product .item-star-icon,
+            .js-item-product .item-star-icon {
+                width: 14px !important;
+                height: 14px !important;
+                fill: #f59e0b !important;
+                flex-shrink: 0 !important;
+                display: inline-block !important;
+                vertical-align: -1px !important;
+            }
+            .item-product .item-rating-score,
+            .js-item-product .item-rating-score {
+                font-size: 12.5px !important;
+                font-weight: 700 !important;
+                color: #374151 !important;
+            }
+
+            /* Botão vermelho com fonte branca abaixo no canto direito */
             .item-product .item-actions,
             .js-item-product .item-actions {
-                text-align: center !important;
-                margin-top: 8px !important;
-                width: 100% !important;
+                margin-top: 0 !important;
+                text-align: right !important;
+                width: auto !important;
             }
             .item-product .item-actions .btn,
-            .js-item-product .item-actions .btn {
+            .js-item-product .item-actions .btn,
+            .item-product .btn-add-to-cart,
+            .js-item-product .btn-add-to-cart {
                 border-radius: 8px !important;
-                font-size: 12px !important;
-                font-weight: 600 !important;
-                padding: 6px 14px !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                padding: 6px 10px !important;
                 background-color: #c0392b !important;
-                border-color: #c0392b !important;
+                border: 1px solid #c0392b !important;
                 color: #ffffff !important;
-                transition: background-color 0.2s ease !important;
+                transition: background-color 0.2s ease, transform 0.15s ease !important;
+                cursor: pointer !important;
+                display: inline-block !important;
+                text-align: center !important;
+                line-height: 1.2 !important;
+                white-space: normal !important;
             }
             .item-product .item-actions .btn:hover,
-            .js-item-product .item-actions .btn:hover {
+            .js-item-product .item-actions .btn:hover,
+            .item-product .btn-add-to-cart:hover,
+            .js-item-product .btn-add-to-cart:hover {
                 background-color: #a93226 !important;
                 border-color: #a93226 !important;
+                transform: scale(1.02) !important;
+            }
+
+            @media (max-width: 576px) {
+                .item-product .item-price-installment,
+                .js-item-product .item-price-installment {
+                    font-size: 12.5px !important;
+                }
+                .item-product .item-price-cash,
+                .js-item-product .item-price-cash {
+                    font-size: 9.5px !important;
+                }
+                .item-product .item-actions .btn,
+                .js-item-product .item-actions .btn,
+                .item-product .btn-add-to-cart,
+                .js-item-product .btn-add-to-cart {
+                    font-size: 9.5px !important;
+                    padding: 5px 6px !important;
+                    max-width: 82px !important;
+                    line-height: 1.15 !important;
+                }
+                .item-product .item-rating-score,
+                .js-item-product .item-rating-score {
+                    font-size: 11.5px !important;
+                }
+                .item-product .item-star-icon,
+                .js-item-product .item-star-icon {
+                    width: 12px !important;
+                    height: 12px !important;
+                }
             }
         </style>
 
