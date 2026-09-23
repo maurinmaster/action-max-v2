@@ -2193,3 +2193,13 @@ footer.section-footer-home {
 .coupon-action-btn[disabled]:hover {
   background-color: transparent;
 }
+
+/* Hide after_header slot */
+div[data-slot="after_header"],
+[data-slot="after_header"],
+div[data-nubesdk-slot="after_header"],
+[data-nubesdk-slot="after_header"],
+.js-nubesdk-slot[data-nubesdk-slot="after_header"] {
+  display: none !important;
+}
+
