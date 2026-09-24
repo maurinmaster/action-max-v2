@@ -134,7 +134,7 @@
                 min-width: 0 !important;
             }
 
-            /* Canto esquerdo: Preço original rasurado cinzento */
+            /* Canto esquerdo: Preço original rasurado cinzento (somente quando há preço promocional) */
             .item-product .item-price-compare,
             .js-item-product .item-price-compare {
                 font-size: 11.5px !important;
@@ -142,7 +142,15 @@
                 text-decoration: line-through !important;
                 line-height: 1.2 !important;
                 margin-bottom: 1px !important;
-                display: block !important;
+                display: block;
+            }
+            .item-product .item-price-compare.d-none,
+            .js-item-product .item-price-compare.d-none,
+            .item-product .item-price-compare[style*="display: none"],
+            .js-item-product .item-price-compare[style*="display: none"],
+            .item-product .item-price-compare:empty,
+            .js-item-product .item-price-compare:empty {
+                display: none !important;
             }
             .item-product .item-price-compare .price-compare,
             .js-item-product .item-price-compare .price-compare {

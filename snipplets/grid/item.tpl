@@ -198,14 +198,10 @@
                             },
                         }) }}
                     {% else %}
-                        {# Preço original rasurado cinzento #}
-                        {% if product.compare_at_price and product.compare_at_price > product.price %}
-                            {% set original_price = product.compare_at_price %}
-                        {% else %}
-                            {% set original_price = (product.price * 1.25) | round %}
-                        {% endif %}
+                        {# Preço original rasurado cinzento apenas se o produto tiver preço promocional cadastrado na loja #}
+                        {% set has_promotional_price = product.compare_at_price and product.compare_at_price > product.price %}
 
-                        {# Preço promocional em destaque em vermelho mostrando em 6 parcelas #}
+                        {# Preço em destaque em vermelho mostrando em 6 parcelas #}
                         {% set installment_6_cents = (product.price / 6) | round %}
 
                         {# Estrela amarela com nota aleatória de 4.7 a 5 #}
@@ -215,14 +211,18 @@
 
                         <div class="item-details-container" data-store="product-item-price-{{ product.id }}">
                             <div class="item-details-row">
-                                {# Canto Esquerdo: Preço original rasurado cinzento + Preço promocional em vermelho mostrando em 6 parcelas #}
+                                {# Canto Esquerdo: Preço original rasurado cinzento (caso tenha promoção) + Preço em destaque em vermelho mostrando em 6 parcelas #}
                                 <div class="item-details-left">
                                     <a href="{{ product_url_with_selected_variant }}" class="item-link">
-                                        {% if not reduced_item %}
+                                        {% if not reduced_item and has_promotional_price %}
                                             <div class="item-price-compare">
                                                 <span class="js-compare-price-display price-compare font-smallest">
-                                                    {{ original_price | money }}
+                                                    {{ product.compare_at_price | money }}
                                                 </span>
+                                            </div>
+                                        {% elseif not reduced_item %}
+                                            <div class="item-price-compare d-none" style="display: none;">
+                                                <span class="js-compare-price-display price-compare font-smallest" style="display: none;"></span>
                                             </div>
                                         {% endif %}
 
