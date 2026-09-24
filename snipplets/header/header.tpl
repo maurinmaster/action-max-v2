@@ -190,12 +190,12 @@
         </div>
     </div>   
 
-    {# Mobile search big (hidden to match requested mobile header layout) #}
-    {% if false and settings.search_big_mobile %}
-        <div class="js-big-search-mobile pb-3 container {{ show_block_mobile_hide_desktop_class }}">
-            {% include "snipplets/header/header-search.tpl" %}
+    {# Mobile search bar - preto com bordas arredondadas em cinza #}
+    <div class="header-search-mobile d-md-none">
+        <div class="container">
+            {% include "snipplets/header/header-search.tpl" with { search_placeholder: 'Buscar produtos...' | translate } %}
         </div>
-    {% endif %}
+    </div>
 
     <style>
     @media (max-width: 767px) {
@@ -233,8 +233,105 @@
             width: 26px !important;
             height: 26px !important;
         }
-        .js-big-search-mobile {
-            display: none !important;
+        .header-search-mobile {
+            background-color: #000000 !important;
+            padding: 2px 0 12px 0 !important;
+            width: 100% !important;
+            display: block !important;
+        }
+        .header-search-mobile .search-form {
+            width: 100% !important;
+            max-width: 100% !important;
+            float: none !important;
+            margin: 0 !important;
+            position: relative !important;
+        }
+        .header-search-mobile .form-group {
+            position: relative !important;
+            margin: 0 !important;
+            width: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        .header-search-mobile .search-input,
+        .header-search-mobile .form-control-ios.search-input {
+            background-color: #000000 !important;
+            border: 1px solid #4b5563 !important;
+            border-radius: 9999px !important;
+            color: #ffffff !important;
+            height: 42px !important;
+            line-height: 42px !important;
+            padding-left: 18px !important;
+            padding-right: 44px !important;
+            font-size: 14px !important;
+            width: 100% !important;
+            transform: none !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+        }
+        .header-search-mobile .search-input:focus,
+        .header-search-mobile .form-control-ios.search-input:focus {
+            border-color: #9ca3af !important;
+            box-shadow: 0 0 0 1px #9ca3af !important;
+        }
+        .header-search-mobile .search-input::placeholder,
+        .header-search-mobile .form-control-ios.search-input::placeholder {
+            color: #9ca3af !important;
+            opacity: 1 !important;
+        }
+        .header-search-mobile .search-btn {
+            position: absolute !important;
+            right: 8px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            margin-top: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 6px !important;
+            color: #9ca3af !important;
+            cursor: pointer !important;
+            z-index: 5 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .header-search-mobile .search-btn:before {
+            background-color: #9ca3af !important;
+            width: 20px !important;
+            height: 20px !important;
+        }
+        .header-search-mobile .search-empty-btn {
+            position: absolute !important;
+            right: 36px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            margin-top: 0 !important;
+            color: #9ca3af !important;
+            z-index: 6 !important;
+        }
+        .header-search-mobile .search-empty-btn:before {
+            background-color: #9ca3af !important;
+            width: 16px !important;
+            height: 16px !important;
+        }
+        .header-search-mobile .search-suggestions {
+            background-color: #111111 !important;
+            border: 1px solid #374151 !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+            color: #ffffff !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1050 !important;
+            width: 100% !important;
+        }
+        .header-search-mobile .search-suggestions a,
+        .header-search-mobile .search-suggestions .search-suggestion-item {
+            color: #ffffff !important;
         }
         .cart-summary .badge {
             position: absolute;

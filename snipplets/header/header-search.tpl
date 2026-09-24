@@ -10,7 +10,7 @@
 {% endif %}
 
 {{ component('search/search-form', {
-    placeholder_text: 'Buscar' | translate,
+    placeholder_text: search_placeholder | default('Buscar' | translate),
     form_classes: { 
         input_group: 'm-0', 
         input: input_class, 
